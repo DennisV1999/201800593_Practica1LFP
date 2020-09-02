@@ -58,3 +58,11 @@ class JsonReader:
                     for each in value:
                         print(each.capitalize()+": " + str(regs[each]))
 
+    def getValues(self, attribute):
+        values = []
+        with open(self.path) as json_file:
+            data = json.load(json_file)
+            for regs in data:
+                values.append(regs[attribute])
+        return values
+

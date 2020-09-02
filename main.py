@@ -53,12 +53,90 @@ def Seleccionar():
     print("Ingrese su seleccion. Ej.: SELECCIONAR nombre,edad,promedio,activo DONDE nombre = \"Francisco\"\n")
     query = input("")
     queryAnalizer(query)
+    os.system('cls')
 
 def Maximo():
-    input("Presione Cualquier tecla para continuar..")
+    global jsonlist
+    values = []
+    print("Ingrese el atributo a evaluar. Ej.: MAXIMO edad")
+    rawquery = input("")
+    query = rawquery.lower()
+    atributes = query.split(' ')
+    if len(atributes) == 2:
+        if atributes[1] == "edad" or atributes[1] == "promedio":
+            for each in jsonlist:
+                jreader = JsonReader.JsonReader(each)
+                regvalues = jreader.getValues(atributes[1])
+                for x in regvalues:
+                    values.append(x)
+            maxvalue = max(values)
+            print("El valor máximo de "+atributes[1].capitalize()+" es: "+str(maxvalue))
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Solo puede buscar el valor máximo para edad o promedio.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    elif len(atributes) == 1:
+        if not atributes[0] == "maximo":
+            print("Debe ingresar una consulta válida.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Debe ingresar un atributo a buscar.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    else:
+        print("Debe ingresar una consulta válida.")
+        input("Presione Cualquier tecla para continuar..")
+        os.system('cls')
+        main()
+    
 
 def Minimo():
-    input("Presione Cualquier tecla para continuar..")
+    global jsonlist
+    values = []
+    print("Ingrese el atributo a evaluar. Ej.: MINIMO edad")
+    rawquery = input("")
+    query = rawquery.lower()
+    atributes = query.split(' ')
+    if len(atributes) == 2:
+        if atributes[1] == "edad" or atributes[1] == "promedio":
+            for each in jsonlist:
+                jreader = JsonReader.JsonReader(each)
+                regvalues = jreader.getValues(atributes[1])
+                for x in regvalues:
+                    values.append(x)
+            minvalue = min(values)
+            print("El valor mínimo de "+atributes[1].capitalize()+" es: "+str(minvalue))
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Solo puede buscar el valor mínimo para edad o promedio.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    elif len(atributes) == 1:
+        if not atributes[0] == "maximo":
+            print("Debe ingresar una consulta válida.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Debe ingresar un atributo a buscar.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    else:
+        print("Debe ingresar una consulta válida.")
+        input("Presione Cualquier tecla para continuar..")
+        os.system('cls')
+        main()
 
 def Suma():
     input("Presione Cualquier tecla para continuar..")
