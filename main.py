@@ -1,5 +1,6 @@
 import os
 import sys
+import JsonReader
 
 jsonlist = []
 
@@ -45,10 +46,13 @@ def Cargar():
         jsonlist.append(path)
         print("¡Archivo cargado exitosamente!")
         input("Presione cualquier tecla para continuar..")
+        os.system('cls')
         main()    
 
 def Seleccionar():
-    input("Presione Cualquier tecla para continuar..")
+    print("Ingrese su seleccion. Ej.: SELECCIONAR nombre,edad,promedio,activo DONDE nombre = \"Francisco\"\n")
+    query = input("")
+    queryAnalizer(query)
 
 def Maximo():
     input("Presione Cualquier tecla para continuar..")
@@ -66,7 +70,7 @@ def Reportar():
     input("Presione Cualquier tecla para continuar..")
 
 def Salir():
-    sys.exit()
+    raise SystemExit
 
 def switch(arg):
     switcher={
@@ -87,6 +91,70 @@ def switch(arg):
     else:
         func = switcher.get(arg, lambda: "Opción Invalida")
         return func()
+
+def queryAnalizer(rawquery):
+    query = rawquery.lower()
+    words = query.split(' ',5)
+    global jsonlist
+    if len(words) == 0:
+        print("Debe ingresar una consulta de seleccion.")
+        input("Presione cualquier tecla para continuar..")
+    elif len(words) == 2:
+        if words[0] == "seleccionar":
+            if words[1] == "*":
+                for each in jsonlist:
+                    jread = JsonReader.JsonReader(each)
+                    jread.selectAll()
+                    print("-------------------------------------------------------------")
+                    print("-------------------------------------------------------------")
+                    input("\nPresione cualquier tecla para continuar..")
+                    main()
+            elif "," in words[1] or words[1] == "nombre" or words[1] == "edad" or words[1] == "activo" or words[1] == "promedio":
+                for each in jsonlist:
+                    jread = JsonReader.JsonReader(each)
+                    jread.selectSome(words[1])
+                    print("-------------------------------------------------------------")
+                    print("-------------------------------------------------------------")
+                    input("\nPresione cualquier tecla para continuar..")
+                    main()
+            else:
+                print("Revise que los atributos se hayan ingresado correctamente.")
+                input("Presione cualquier tecla para continuar..")
+                main()
+        else:
+            print("No se reconoce el comando "+words[0])
+            input("Presione cualquier tecla para continuar..")
+            main()
+    elif len(words) == 6:
+        if words[0] == "seleccionar":
+            if words[1] == "*":
+                for each in jsonlist:
+                    jread = JsonReader.JsonReader(each)
+                    jread.selectAllCondition(words[3]+"="+words[5])
+                    print("-------------------------------------------------------------")
+                    print("-------------------------------------------------------------")
+                    input("\nPresione cualquier tecla para continuar..")
+                    main()
+            elif "," in words[1] or words[1] == "nombre" or words[1] == "edad" or words[1] == "activo" or words[1] == "promedio":
+                for each in jsonlist:
+                    jread = JsonReader.JsonReader(each)
+                    jread.selectSomeCondition(words[1],words[3]+"="+words[5])
+                    print("-------------------------------------------------------------")
+                    print("-------------------------------------------------------------")
+                    input("\nPresione cualquier tecla para continuar..")
+                    main()
+            else:
+                print("Revise que los atributos se hayan ingresado correctamente.")
+                input("Presione cualquier tecla para continuar..")
+                main()
+        else:
+            print("No se reconoce el comando "+words[0])
+            input("Presione cualquier tecla para continuar..")
+            main()
+    else:
+        print("Ingrese una consulta válida.")
+        input("Presione cualquier tecla para continuar..")
+        main()
 
 if __name__ == "__main__":
     main()
