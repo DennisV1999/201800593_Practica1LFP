@@ -105,18 +105,18 @@ def queryAnalizer(rawquery):
                 for each in jsonlist:
                     jread = JsonReader.JsonReader(each)
                     jread.selectAll()
-                    print("-------------------------------------------------------------")
-                    print("-------------------------------------------------------------")
-                    input("\nPresione cualquier tecla para continuar..")
-                    main()
+                print("-------------------------------------------------------------")
+                print("-------------------------------------------------------------")
+                input("\nPresione cualquier tecla para continuar..")
+                main()
             elif "," in words[1] or words[1] == "nombre" or words[1] == "edad" or words[1] == "activo" or words[1] == "promedio":
                 for each in jsonlist:
                     jread = JsonReader.JsonReader(each)
                     jread.selectSome(words[1])
-                    print("-------------------------------------------------------------")
-                    print("-------------------------------------------------------------")
-                    input("\nPresione cualquier tecla para continuar..")
-                    main()
+                print("-------------------------------------------------------------")
+                print("-------------------------------------------------------------")
+                input("\nPresione cualquier tecla para continuar..")
+                main()
             else:
                 print("Revise que los atributos se hayan ingresado correctamente.")
                 input("Presione cualquier tecla para continuar..")
@@ -131,18 +131,18 @@ def queryAnalizer(rawquery):
                 for each in jsonlist:
                     jread = JsonReader.JsonReader(each)
                     jread.selectAllCondition(words[3]+"="+words[5])
-                    print("-------------------------------------------------------------")
-                    print("-------------------------------------------------------------")
-                    input("\nPresione cualquier tecla para continuar..")
-                    main()
+                print("-------------------------------------------------------------")
+                print("-------------------------------------------------------------")
+                input("\nPresione cualquier tecla para continuar..")
+                main()
             elif "," in words[1] or words[1] == "nombre" or words[1] == "edad" or words[1] == "activo" or words[1] == "promedio":
                 for each in jsonlist:
                     jread = JsonReader.JsonReader(each)
                     jread.selectSomeCondition(words[1],words[3]+"="+words[5])
-                    print("-------------------------------------------------------------")
-                    print("-------------------------------------------------------------")
-                    input("\nPresione cualquier tecla para continuar..")
-                    main()
+                print("-------------------------------------------------------------")
+                print("-------------------------------------------------------------")
+                input("\nPresione cualquier tecla para continuar..")
+                main()
             else:
                 print("Revise que los atributos se hayan ingresado correctamente.")
                 input("Presione cualquier tecla para continuar..")

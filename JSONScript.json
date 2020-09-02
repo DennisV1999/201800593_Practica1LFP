@@ -1,28 +1,14 @@
-{
-    "personas":[
-        {
-            "nombre": "Dennis",
-            "edad": 20,
-            "esEstudiante": true,
-            "facultad": "Inegnieria"
-        },
-        {
-            "nombre": "Luis",
-            "edad": 25,
-            "esEstudiante": true,
-            "facultad": "Medicina"
-        },
-        {
-            "nombre": "Renee",
-            "edad": 20,
-            "esEstudiante": true,
-            "facultad": "Inegnieria"
-        },
-        {
-            "nombre": "Sebastian",
-            "edad": 21,
-            "esEstudiante": true,
-            "facultad": "Derecho"
-        }
-    ]
-}
+[
+    {
+        "nombre": "registro 3",
+        "edad": 35,
+        "activo": false,
+        "promedio": 67.46
+    },
+    {
+        "nombre": "registro 4",
+        "edad": 25,
+        "activo": true,
+        "promedio": 84.896
+    }
+]
