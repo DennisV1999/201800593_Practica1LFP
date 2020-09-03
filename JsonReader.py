@@ -66,3 +66,11 @@ class JsonReader:
                 values.append(regs[attribute])
         return values
 
+    def countRegs(self):
+        i = 0
+        with open(self.path) as json_file:
+            data = json.load(json_file)
+            for regs in data:
+                i += 1
+        return i
+

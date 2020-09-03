@@ -122,7 +122,7 @@ def Minimo():
             os.system('cls')
             main()
     elif len(atributes) == 1:
-        if not atributes[0] == "maximo":
+        if not atributes[0] == "minimo":
             print("Debe ingresar una consulta válida.")
             input("Presione Cualquier tecla para continuar..")
             os.system('cls')
@@ -139,10 +139,66 @@ def Minimo():
         main()
 
 def Suma():
-    input("Presione Cualquier tecla para continuar..")
+    global jsonlist
+    values = []
+    print("Ingrese el atributo a sumar. Ej.: SUMA edad")
+    rawquery = input("")
+    query = rawquery.lower()
+    atributes = query.split(' ')
+    if len(atributes) == 2:
+        if atributes[1] == "edad" or atributes[1] == "promedio":
+            for each in jsonlist:
+                jreader = JsonReader.JsonReader(each)
+                regvalues = jreader.getValues(atributes[1])
+                for x in regvalues:
+                    values.append(x)
+            sumvalue = sum(values)
+            print("El valor total de la suma de "+atributes[1].capitalize()+" es: "+str(sumvalue))
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Solo puede buscar la suma para edad o promedio.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    elif len(atributes) == 1:
+        if not atributes[0] == "suma":
+            print("Debe ingresar una consulta válida.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+        else:
+            print("Debe ingresar un atributo a sumar.")
+            input("Presione Cualquier tecla para continuar..")
+            os.system('cls')
+            main()
+    else:
+        print("Debe ingresar una consulta válida.")
+        input("Presione Cualquier tecla para continuar..")
+        os.system('cls')
+        main()
 
 def Cuenta():
-    input("Presione Cualquier tecla para continuar..")
+    global jsonlist
+    print("Inicie el conteo de registros escribiendo 'CUENTA'")
+    rawquery = input()
+    query = rawquery.lower()
+    regs = 0
+    if query == "cuenta":
+        for each in jsonlist:
+            jreader = JsonReader.JsonReader(each)
+            regs += jreader.countRegs()
+        print("¡Hay un total de "+str(regs)+" registros!")
+        input("Presione Cualquier tecla para continuar..")
+        os.system('cls')
+        main()
+    else:
+        print("Debe escribir 'CUENTA' sin las comillas.")
+        input("Presione Cualquier tecla para continuar..")
+        os.system('cls')
+        main()
+    
 
 def Reportar():
     input("Presione Cualquier tecla para continuar..")
