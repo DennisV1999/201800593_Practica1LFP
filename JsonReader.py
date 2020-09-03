@@ -2,8 +2,11 @@ import json
 
 class JsonReader:
     
+    
+
     def __init__(self, path):
         self.path = path
+        self.counter = 0
     
     def selectAll(self):
         with open(self.path) as json_file:
@@ -73,4 +76,28 @@ class JsonReader:
             for regs in data:
                 i += 1
         return i
+
+    def getAllValues(self,howmany):
+        values = []
+        with open(self.path) as json_file:
+            data = json.load(json_file)
+            for regs in data:
+                if self.counter < int(howmany):
+                    auxarray = []
+                    auxarray.append(regs['nombre'])
+                    auxarray.append(regs['edad'])
+                    auxarray.append(regs['activo'])
+                    auxarray.append(regs['promedio'])
+                    values.append(auxarray)
+                    self.counter += 1
+        return values
+
+    def resetCounter(self):
+        self.counter = 0
+
+    def getCounter(self):
+        return self.counter
+
+    def setCounter(self,counter):
+        self.counter = counter
 

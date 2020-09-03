@@ -1,0 +1,130 @@
+
+        @charset "utf-8";
+#sect {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	background-color:#CFEFFA;
+	width: 70%;
+	height: 100%;
+	margin: 0 auto 0 auto;
+	padding-bottom: 25px;
+	padding-top: 15px;
+}
+.form {
+		margin: 0 auto;
+		width: 80%;
+	}
+
+.form label{
+		display: inline-block;
+		text-align: right;
+		float: left;
+	}
+
+.form input{
+		display: inline-block;
+		text-align: left;
+		float: right;
+	}
+	
+.form input[type="text"]{
+		width: 50%;
+	}
+	
+.form input[type="password"]{
+		width: 50%;
+	}
+	
+.form input[type="date"]{
+		width: 50%;
+	}
+.form input[type="image"]{
+	width: auto !important;
+  	float: none !important;
+	text-align:center;
+}
+.form input[type="button"]{
+	width: auto !important;
+  	float: none !important;
+	text-align:center;
+}
+#head #titulo {
+	font-family: "Courier New", Courier, monospace;
+	position:relative;
+	margin: auto;
+	text-align:center;
+	top: 27px;
+}
+
+	
+.form #countr{
+		display: inline-block;
+		text-align: left;
+		float: right;
+		width: 50.5%
+	}
+	
+body{
+	height: 100%;
+	background-color:#FBEFD7
+}
+
+#foot{
+	width: 100%;
+	height:auto;
+	text-align: center;
+	background-color:#000000;
+	color: #FFFFFF;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+
+#head{
+	width:100%;
+	background-color:#FC9C32;
+	padding-bottom: 20px;
+	text-align:center;
+}
+#tabladatos {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+td {
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: none;
+	border-left-style: solid;
+	border-top-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
+}
+#sect #divsect #tabladatos tr .first {
+	border-left-style: solid;
+	border-top-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
+}
+
+
+th {
+	border-top-width: medium;
+	border-right-width: medium;
+	border-bottom-width: medium;
+	border-left-width: medium;
+	border-top-style: double;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: double;
+}
+        
